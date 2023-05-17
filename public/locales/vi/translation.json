@@ -1,0 +1,26 @@
+{
+  "location": "Số 1 đường Võ Văn Ngân, phường Linh Trung, Thành phố Thủ Đức, Thành phố Hồ Chí Minh",
+  "page": {
+    "home": "Trang chủ",
+    "aboutUs": "Về chúng tôi",
+    "ourServices": "Dịch vụ",
+    "privacyPolicy": "Chính sách",
+    "affiliateProgram": "Chương trình liên kết",
+    "FAQ": "Hỏi đáp",
+    "shipping": "Vận chuyển",
+    "returns": "Đổi trả hàng",
+    "orderStatus": "Trạng thái giao hàng",
+    "paymentOptions": "Phương thức thanh toán"
+  },
+  "category": {
+    "laptop": "Máy tính xách tay",
+    "monitor": "Màn hình",
+    "mouse": "Chuột máy tính",
+    "keyboard": "Bàn phím"
+  },
+  "footer": {
+    "getHelp": "Trợ giúp",
+    "onlineShop": "Cửa hàng online",
+    "followUs": "Theo dõi Shop"
+  }
+}
