@@ -15,6 +15,7 @@ const HeaderBanner = () => {
         <img
           src="https://th.bing.com/th/id/OIP.RmFQYaCHhtm9oQCaTvkNFgHaBB?pid=ImgDet&w=2000&h=276&rs=1"
           alt=""
+          className="w-100"
           style={fixedStyleBannerTop}
         />
       ),
@@ -24,6 +25,7 @@ const HeaderBanner = () => {
         <img
           src="https://th.bing.com/th/id/OIP.CrLBdXP8YsyPA9502_s0qQHaA-?pid=ImgDet&rs=1https://th.bing.com/th/id/OIP.CrLBdXP8YsyPA9502_s0qQHaA-?pid=ImgDet&rs=1"
           alt=""
+          className="w-100"
           style={fixedStyleBannerTop}
         />
       ),
