@@ -1,0 +1,36 @@
+.animate-charcter {
+  text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #6540f8 0%,
+    #4121ce 29%,
+    #3133a3 67%,
+    #171658 100%
+  );
+  &.dark {
+    background-image: linear-gradient(
+      -225deg,
+      #ddd6f8 0%,
+      #e2f1ca 29%,
+      #d4da80 67%,
+      #ebe662 100%
+    );
+  }
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+  font-size: 4vw;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}

@@ -6,11 +6,17 @@ const HeaderMenu = ({ theme }) => {
   return (
     <nav
       className={classNames("container navbar navbar-expand-lg", {
-        "navbar-dark": theme === "dark"
+        "navbar-dark": theme === "dark",
       })}
     >
       <div className="container-fluid d-flex">
-        <Link className="navbar-brand fw-bold font-monospace" to="/">
+        <Link
+          className={classNames(
+            "navbar-brand fw-bold font-monospace animate-charcter",
+            theme
+          )}
+          to="/"
+        >
           {process.env.REACT_APP_WEB_SOURCE}
         </Link>
         <button
