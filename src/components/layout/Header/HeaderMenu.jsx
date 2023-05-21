@@ -1,8 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import classNames from "classnames";
 
-const HeaderMenu = ({ theme }) => {
+const HeaderMenu = ({ theme, t, ...rest }) => {
+  const navigate = useNavigate();
+
   return (
     <nav
       className={classNames("container navbar navbar-expand-lg", {
@@ -32,23 +34,24 @@ const HeaderMenu = ({ theme }) => {
         </button>
         <div className="collapse navbar-collapse" id="navbarCollapse">
           <ul
-            className="navbar-nav me-2 my-2 my-lg-0"
+            className="navbar-nav me-2 mb-2 mb-lg-0"
             style={{ "--bs-scroll-height": "100px" }}
           >
-            <li className="nav-item">
-              <a className="nav-link" href="#_">
-                Link
-              </a>
-            </li>
             <li className="nav-item dropdown">
               <a
-                className="nav-link dropdown-toggle"
+                className={classNames(
+                  "btn dropdown-toggle px-2 py-3",
+                  theme === "dark" ? "btn-dark" : "btn-success"
+                )}
                 href="#_"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Link
+                <i className="bi bi-list"></i>
+                <span className="mx-1 text-uppercase fw-bold">
+                  {t("label.category")}
+                </span>
               </a>
               <ul className="dropdown-menu">
                 <li>
@@ -72,11 +75,12 @@ const HeaderMenu = ({ theme }) => {
               </ul>
             </li>
           </ul>
-          <form className="input-group mb-2 mb-lg-0 me-2" role="search">
+
+          <form className="input-group me-2 mb-2 mb-lg-0" role="search">
             <input
-              className="form-control"
+              className="form-control py-3"
               type="search"
-              placeholder="Search"
+              placeholder={t("placeholder.search")}
               aria-label="Search"
             />
             <button
@@ -88,8 +92,8 @@ const HeaderMenu = ({ theme }) => {
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
+                width="24"
+                height="24"
                 fill="currentColor"
                 className="bi bi-search"
                 viewBox="0 0 16 16"
@@ -98,15 +102,29 @@ const HeaderMenu = ({ theme }) => {
               </svg>
             </button>
           </form>
-          <div className="text-end">
+          <div className="text-end d-flex flex-row gap-2">
             <button
               type="button"
               className={classNames(
-                "btn w-100",
+                "btn d-flex gap-2",
                 theme === "dark" ? "btn-dark" : "btn-success"
               )}
             >
-              Login
+              <i className="bi bi-cart4 align-self-center"></i>
+              <div className="vr"></div>
+              <span className="text-start">{t("label.cart")}</span>
+            </button>
+            <button
+              type="button"
+              className={classNames(
+                "btn d-flex gap-2",
+                theme === "dark" ? "btn-dark" : "btn-success"
+              )}
+              onClick={() => navigate("/login")}
+            >
+              <i className="bi bi-person-fill align-self-center"></i>
+              <div className="vr"></div>
+              <span className="text-start">{t("label.login")}</span>
             </button>
           </div>
         </div>
