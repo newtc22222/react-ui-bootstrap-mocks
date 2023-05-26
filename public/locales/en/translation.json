@@ -1,5 +1,42 @@
 {
+  "location": "1st Vo Van Ngan Street, Linh Trung district, Thu Duc City, Ho Chi Minh City",
   "page": {
-    "home": "Home"
+    "home": "Home",
+    "product": "Product",
+    "aboutUs": "About Us",
+    "ourServices": "Our Services",
+    "privacyPolicy": "Privacy Policy",
+    "affiliateProgram": "Affiliate Program",
+    "FAQ": "FAQ",
+    "shipping": "Shipping",
+    "returns": "Returns",
+    "orderStatus": "Order Status",
+    "paymentOptions": "Payment Option"
+  },
+  "category": {
+    "laptop": "Laptop",
+    "monitor": "Monitor",
+    "mouse": "Mouse",
+    "keyboard": "Keyboard"
+  },
+  "placeholder": {
+    "search": "Search..."
+  },
+  "label": {
+    "cart": "Cart",
+    "login": "Login",
+    "register": "Register",
+    "forgotPassword": "Forgot Password",
+    "accessory": "Accessory",
+    "brand": "Brand",
+    "category": "Category",
+    "specifications": "Specifications",
+    "descriptionDetail": "Description Detail",
+    "checkout": "Check out"
+  },
+  "footer": {
+    "getHelp": "Get Help",
+    "onlineShop": "Online Shop",
+    "followUs": "Follow Us"
   }
 }
