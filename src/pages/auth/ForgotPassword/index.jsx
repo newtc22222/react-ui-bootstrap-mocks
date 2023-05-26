@@ -1,6 +1,13 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 
-const ForgotPassword = () => {
+const ForgotPassword = ({ t, ...rest }) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
   return <>ForgotPassword</>;
 };
 

@@ -85,7 +85,7 @@ const HeaderMenu = ({ theme, t, ...rest }) => {
             />
             <button
               className={classNames(
-                "btn",
+                "btn px-3",
                 theme === "dark" ? "btn-dark" : "btn-success"
               )}
               type="button" // change to submit when using
@@ -102,30 +102,44 @@ const HeaderMenu = ({ theme, t, ...rest }) => {
               </svg>
             </button>
           </form>
-          <div className="text-end d-flex flex-row gap-2">
-            <button
-              type="button"
-              className={classNames(
-                "btn d-flex gap-2",
-                theme === "dark" ? "btn-dark" : "btn-success"
-              )}
-            >
-              <i className="bi bi-cart4 align-self-center"></i>
-              <div className="vr"></div>
-              <span className="text-start">{t("label.cart")}</span>
-            </button>
-            <button
-              type="button"
-              className={classNames(
-                "btn d-flex gap-2",
-                theme === "dark" ? "btn-dark" : "btn-success"
-              )}
-              onClick={() => navigate("/login")}
-            >
-              <i className="bi bi-person-fill align-self-center"></i>
-              <div className="vr"></div>
-              <span className="text-start">{t("label.login")}</span>
-            </button>
+          <div className="text-end w-50 d-flex flex-column py-1">
+            <div className="text-start mb-1">
+              <i className="bi bi-headset me-2"></i>
+              <a
+                href="tel:18001800"
+                className={
+                  "text-decoration-none fw-bold" +
+                  (theme === "dark" ? " text-white" : "")
+                }
+              >
+                Hotline: 1800 xxxx
+              </a>
+            </div>
+            <div className="d-flex flex-row gap-2 w-100">
+              <button
+                type="button"
+                className={classNames(
+                  "btn d-flex gap-2",
+                  theme === "dark" ? "btn-dark" : "btn-success"
+                )}
+              >
+                <i className="bi bi-cart4 align-self-center"></i>
+                <div className="vr"></div>
+                <span className="text-start">{t("label.cart")}</span>
+              </button>
+              <button
+                type="button"
+                className={classNames(
+                  "btn d-flex gap-2",
+                  theme === "dark" ? "btn-dark" : "btn-success"
+                )}
+                onClick={() => navigate("/login")}
+              >
+                <i className="bi bi-person-fill align-self-center"></i>
+                <div className="vr"></div>
+                <span className="text-start">{t("label.login")}</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>

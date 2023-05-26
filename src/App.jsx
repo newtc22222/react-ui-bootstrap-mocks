@@ -1,9 +1,9 @@
 import React from "react";
 import { RouterProvider } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
-// import { SnackbarProvider } from "notistack";
 
 import AppProvider from "./components/context/AppContext";
+import AuthProvider from "./components/context/AuthContext";
 import { LoadingPage } from "./components/common";
 import router from "./routes";
 
@@ -17,9 +17,9 @@ function App() {
   return (
     <HelmetProvider>
       <AppProvider>
-        {/* <SnackbarProvider > */}
-        <RouterProvider router={router} fallbackElement={<LoadingPage />} />
-        {/* </SnackbarProvider> */}
+        <AuthProvider>
+          <RouterProvider router={router} fallbackElement={<LoadingPage />} />
+        </AuthProvider>
       </AppProvider>
     </HelmetProvider>
   );
