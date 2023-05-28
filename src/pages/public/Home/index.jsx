@@ -1,17 +1,13 @@
-import React, { useState } from "react";
-import { enqueueSnackbar } from "notistack";
+import React from "react";
 import { useTranslation } from "react-i18next";
 
 import { HeaderTitle } from "../../../components/common";
 import { useAppContext } from "../../../components/context/AppContext";
 
 const Home = () => {
-  const { i18n, t } = useTranslation();
-  // console.log(lang);
+  const { t } = useTranslation();
 
   const {
-    handleOpenCartCanvas,
-    handleChangeTheme,
     handleChangeLang,
     webSetting: { lang },
   } = useAppContext();
@@ -21,16 +17,7 @@ const Home = () => {
       <HeaderTitle title={"Laptech | " + t("page.home")} />
       <button
         className="btn btn-primary"
-        onClick={() => {
-          handleChangeTheme();
-          handleOpenCartCanvas(true);
-          // enqueueSnackbar("Yeahhhhhhhhhhh", {
-          //   variant: "success"
-          // });
-          const langChoice = lang === "vi" ? "en" : "vi";
-          i18n.changeLanguage(langChoice);
-          handleChangeLang(langChoice);
-        }}
+        onClick={() => handleChangeLang("vi")}
       >
         Test
       </button>

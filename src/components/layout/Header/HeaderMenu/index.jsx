@@ -2,8 +2,14 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import classNames from "classnames";
 
+import { useAppContext } from "../../../context/AppContext";
+
+import CategoryDropdown from "./CategoryDropdown";
+import SearchBar from "./SearchBar";
+
 const HeaderMenu = ({ theme, t, ...rest }) => {
   const navigate = useNavigate();
+  const { handleOpenCartCanvas } = useAppContext();
 
   return (
     <nav
@@ -33,75 +39,9 @@ const HeaderMenu = ({ theme, t, ...rest }) => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarCollapse">
-          <ul
-            className="navbar-nav me-2 mb-2 mb-lg-0"
-            style={{ "--bs-scroll-height": "100px" }}
-          >
-            <li className="nav-item dropdown">
-              <a
-                className={classNames(
-                  "btn dropdown-toggle px-2 py-3",
-                  theme === "dark" ? "btn-dark" : "btn-success"
-                )}
-                href="#_"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <i className="bi bi-list"></i>
-                <span className="mx-1 text-uppercase fw-bold">
-                  {t("label.category")}
-                </span>
-              </a>
-              <ul className="dropdown-menu">
-                <li>
-                  <a className="dropdown-item" href="#_">
-                    Action
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#_">
-                    Another action
-                  </a>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#_">
-                    Something else here
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
+          <CategoryDropdown navigate={navigate} t={t} theme={theme} />
+          <SearchBar navigate={navigate} t={t} theme={theme} />
 
-          <form className="input-group me-2 mb-2 mb-lg-0" role="search">
-            <input
-              className="form-control py-3"
-              type="search"
-              placeholder={t("placeholder.search")}
-              aria-label="Search"
-            />
-            <button
-              className={classNames(
-                "btn px-3",
-                theme === "dark" ? "btn-dark" : "btn-success"
-              )}
-              type="button" // change to submit when using
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="currentColor"
-                className="bi bi-search"
-                viewBox="0 0 16 16"
-              >
-                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-              </svg>
-            </button>
-          </form>
           <div className="text-end w-50 d-flex flex-column py-1">
             <div className="text-start mb-1">
               <i className="bi bi-headset me-2"></i>
@@ -122,6 +62,7 @@ const HeaderMenu = ({ theme, t, ...rest }) => {
                   "btn d-flex gap-2",
                   theme === "dark" ? "btn-dark" : "btn-success"
                 )}
+                onClick={handleOpenCartCanvas}
               >
                 <i className="bi bi-cart4 align-self-center"></i>
                 <div className="vr"></div>

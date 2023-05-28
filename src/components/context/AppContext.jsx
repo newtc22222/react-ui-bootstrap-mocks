@@ -1,5 +1,7 @@
 import React, { createContext, useContext, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { closeSnackbar } from "notistack";
+
 import { langArray } from "../../configs/constant";
 
 const AppContext = createContext(null);
@@ -20,6 +22,8 @@ const AppProvider = ({ children }) => {
       setCartLocalItems((prev) => prev.filter((item) => item.id !== itemId)),
     clear: () => setCartLocalItems([]),
   };
+
+  const { i18n } = useTranslation();
 
   const [webSetting, setWebSetting] = useState({
     theme: localStorage.getItem("theme") || "light",
@@ -53,6 +57,7 @@ const AppProvider = ({ children }) => {
 
   const handleChangeLang = (lang) => {
     if (!langArray.includes(lang)) return;
+    i18n.changeLanguage(lang);
     setWebSetting((prev) => {
       return { ...prev, lang: lang };
     });
