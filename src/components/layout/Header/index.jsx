@@ -1,4 +1,6 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
+
 import { useAppContext } from "../../context/AppContext";
 
 import HeaderBanner from "./HeaderBanner";
@@ -24,13 +26,15 @@ const setTheme = (theme) => {
 
 const Header = () => {
   const {
-    webSetting: { theme }
+    webSetting: { theme },
   } = useAppContext();
+
+  const { t } = useTranslation();
 
   return (
     <header {...setTheme(theme)}>
       <HeaderBanner />
-      <HeaderMenu theme={theme} />
+      <HeaderMenu theme={theme} t={t} />
     </header>
   );
 };

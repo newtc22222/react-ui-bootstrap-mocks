@@ -1,5 +1,8 @@
 import React, { createContext, useContext, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { closeSnackbar } from "notistack";
+
+import { langArray } from "../../configs/constant";
 
 const AppContext = createContext(null);
 
@@ -7,7 +10,9 @@ const AppProvider = ({ children }) => {
   const [cartCanvasOpen, setCartCanvasOpen] = useState(false);
   const handleOpenCartCanvas = (status) => setCartCanvasOpen(status);
 
-  const [cartLocalItems, setCartLocalItems] = useState([]);
+  const [cartLocalItems, setCartLocalItems] = useState(
+    localStorage.getItem("cart") || []
+  );
   const CartLocalService = {
     addItem: (item) => setCartLocalItems((prev) => [...prev, item]),
     increaseQuantity: (item) => {},
@@ -15,17 +20,20 @@ const AppProvider = ({ children }) => {
     updateQuantity: (item, newQuantity) => {},
     removeItem: (itemId) =>
       setCartLocalItems((prev) => prev.filter((item) => item.id !== itemId)),
-    clear: () => setCartLocalItems([])
+    clear: () => setCartLocalItems([]),
   };
 
+  const { i18n } = useTranslation();
+
   const [webSetting, setWebSetting] = useState({
-    theme: "light",
+    theme: localStorage.getItem("theme") || "light",
+    lang: "vi",
     snackbarConfig: {
       maxSnack: 3,
       autoHideDuration: 3000,
       anchorOrigin: {
         vertical: "bottom",
-        horizontal: "center"
+        horizontal: "center",
       },
       dense: true,
       action: (snackbarId) => (
@@ -35,13 +43,23 @@ const AppProvider = ({ children }) => {
           aria-label="Close"
           onClick={() => closeSnackbar(snackbarId)}
         ></button>
-      )
-    }
+      ),
+    },
   });
 
   const handleChangeTheme = () => {
     setWebSetting((prev) => {
-      return { ...prev, theme: prev.theme === "light" ? "dark" : "light" };
+      const themeChoice = prev.theme === "light" ? "dark" : "light";
+      localStorage.setItem("theme", themeChoice);
+      return { ...prev, theme: themeChoice };
+    });
+  };
+
+  const handleChangeLang = (lang) => {
+    if (!langArray.includes(lang)) return;
+    i18n.changeLanguage(lang);
+    setWebSetting((prev) => {
+      return { ...prev, lang: lang };
     });
   };
 
@@ -60,7 +78,8 @@ const AppProvider = ({ children }) => {
         CartLocalService,
         webSetting,
         handleChangeTheme,
-        handleChangeSnackBar
+        handleChangeLang,
+        handleChangeSnackBar,
       }}
     >
       {children}

@@ -2,6 +2,7 @@
   "location": "Số 1 đường Võ Văn Ngân, phường Linh Trung, Thành phố Thủ Đức, Thành phố Hồ Chí Minh",
   "page": {
     "home": "Trang chủ",
+    "product": "Sản phẩm",
     "aboutUs": "Về chúng tôi",
     "ourServices": "Dịch vụ",
     "privacyPolicy": "Chính sách",
@@ -17,6 +18,21 @@
     "monitor": "Màn hình",
     "mouse": "Chuột máy tính",
     "keyboard": "Bàn phím"
+  },
+  "placeholder": {
+    "search": "Tìm kiếm..."
+  },
+  "label": {
+    "cart": "Giỏ hàng",
+    "login": "Đăng nhập",
+    "register": "Đăng ký",
+    "forgotPassword": "Quên mật khẩu",
+    "accessory": "Phụ kiện",
+    "brand": "Thương hiệu",
+    "category": "Danh mục",
+    "specifications": "Thông số kỹ thuật",
+    "descriptionDetail": "Mô tả chi tiết",
+    "checkout": "Thanh toán"
   },
   "footer": {
     "getHelp": "Trợ giúp",
